@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="js/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <div class="panel panel-primary">
+        <div id="ids" class="panel-body">
+            <table class="table table-bordered table-responsive table-hover">
+                <tr v-for="bean in beans">
+                    <td>{{bean.paperid}}</td>
+                    <td>{{bean.papernames}}</td>
+                    <td>{{bean.remarks}}</td>
+                    <td>{{bean.createtime}}</td>
+                    <td>
+                        <a :href="'/papers?id='+bean.paperid" class="btn">我要参加考试</a>
+                        <a :href="'/papers?id='+bean.paperid" class="btn">我所有的试卷</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        var a = {
+            beans: []
+        };
+        var vue = new Vue({
+            el: "#ids",
+            data: a,
+            mounted: function () {
+                this.li();
+            },
+            methods: {
+                li: function () {
+                    $.get("/admin", function (da) {
+                        vue.beans = da;
+                    })
+                }
+            }
+        });
+    })
+
+</script>
+
+</body>
+</html>

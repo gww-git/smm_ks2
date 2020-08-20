@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="js/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/vue/2.5.16/vue.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <input type="hidden" id="textid" th:value="${id}"></input>
+    <div class="panel panel-primary">
+        <div id="ids" class="panel-body">
+
+            <div>
+                <form action="/items2" method="post" name="form" v-if="beans !==null">
+                    <div v-for="bean in beans">
+                    <table class="table table-bordered table-responsive table-hover">
+                        <tr style="background-color: #8a6d3b">
+                            <!--<td>第{{ $index }}题</td>-->
+                            <td> {{bean.ename}}
+                                <span v-if="bean.etype==3">
+                                【单选题】
+                            </span>
+                                <span v-if="bean.etype==2">
+                                【填空题】
+                            </span>
+                                <span v-if="bean.etype==1">
+                                【判断题】
+                            </span>
+                                <span v-if="bean.etype==4">
+                                【多选题】
+                            </span>
+                                ( {{bean.escore}} )
+                            </td>
+
+                        </tr>
+                        <tr style="height: 60px" v-if="bean.etype==3">
+                            <td style="padding-top: 20px">&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="rad{{bean.eid}}" value="{{bean.ea}}"> {{bean.ea}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="rad{{bean.eid}}" value="{{bean.eb}}">{{bean.eb}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="rad{{bean.eid}}" value="{{bean.ec}}">{{bean.ec}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="rad{{bean.eid}}" value="{{bean.ed}}">{{bean.ed}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="rad{{bean.eid}}" value="{{bean.ee}}">{{bean.ee}}&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="rad{{bean.eid}}" value="{{bean.ey}}">{{bean.ey}}&nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                    </div>
+                    <input type="submit" value="提交" v-if="beans !==null">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        var a = {
+            beans: []
+        };
+        var vue = new Vue({
+            el: "#ids",
+            data: a,
+            mounted: function () {
+                this.li();
+            },
+            methods: {
+                li: function () {
+                    $.get("/items", {"id": $("#textid").val()}, function (da) {
+                        vue.beans = da;
+                    })
+                }
+            }
+        });
+
+        $("form[name='form']").submit(function () {
+
+            // $("input[name='rad']").each(function (i) {
+            //     if ($(this).is(":checked")) {
+            //         alert(i);
+            //     }
+            // });
+            // return false;
+
+            $(vue.beans).each(function (i) {
+               $("")
+            });
+
+            $("table").each(function (i) {
+                $(this).find("input").each(function (i) {
+                    if ($(this).is("checked"));
+                })
+            })
+
+
+            return false;
+
+        })
+
+    })
+
+</script>
+
+</body>
+</html>
