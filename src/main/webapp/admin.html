@@ -19,8 +19,8 @@
                     <td>{{bean.remarks}}</td>
                     <td>{{bean.createtime}}</td>
                     <td>
-                        <a :href="'/papers?id='+bean.paperid" class="btn">我要参加考试</a>
-                        <a :href="'/papers?id='+bean.paperid" class="btn">我所有的试卷</a>
+                        <a :href="'/admin/papers?id='+bean.paperid" class="btn">我要参加考试</a>
+                        <a :href="'/admin/shijuan?id='+bean.paperid" class="btn">我所有的试卷</a>
                     </td>
                 </tr>
             </table>
@@ -41,7 +41,7 @@
             },
             methods: {
                 li: function () {
-                    $.get("/admin", function (da) {
+                    $.get("/admin/data", function (da) {
                         vue.beans = da;
                     })
                 }

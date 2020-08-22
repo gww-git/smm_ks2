@@ -15,9 +15,10 @@ public class AdminController {
     @Autowired
     private IPapersService papersService;
 
-    @RequestMapping("/admin")
+    @RequestMapping("/admin/data")
     @ResponseBody
     public List<Papers> admin(){
+
         return papersService.ByPapersAll();
     }
 

@@ -18,4 +18,5 @@ public class PapersServiceimpl implements IPapersService{
     public List<Papers> ByPapersAll() {
         return papersMapper.selectAll();
     }
+
 }

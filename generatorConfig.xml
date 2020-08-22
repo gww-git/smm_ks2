@@ -31,15 +31,6 @@
 		<!--6.配置哪些 表需要自动生成-->
 		<table tableName="user" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
 			   enableSelectByExample="true"   selectByExampleQueryId="true" />
-		<table tableName="items" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
-			   enableSelectByExample="true"   selectByExampleQueryId="true" />
-		<table tableName="papers" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
-			   enableSelectByExample="true"   selectByExampleQueryId="true" />
-		<table tableName="score" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
-			   enableSelectByExample="true"   selectByExampleQueryId="true" />
-		<table tableName="scoredata" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
-			   enableSelectByExample="true"   selectByExampleQueryId="true" />
-
 
 	</context>
 </generatorConfiguration>

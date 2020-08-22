@@ -24,4 +24,9 @@ public class ItemsServiceimpl implements ItemsService {
                 .andEpaperidEqualTo(id);
         return itemsMapper.selectByExample(itemsExample);
     }
+
+    @Override
+    public List<Items> randItems(int id) {
+        return itemsMapper.randItems(id);
+    }
 }

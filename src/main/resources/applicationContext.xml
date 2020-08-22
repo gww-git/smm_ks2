@@ -32,7 +32,7 @@
         <property name="dataSource" ref="dataSource"></property>
 
         <!--配置实体类映射文件-->
-        <!--<property name="mapperLocations" value="classpath*:com/sz/mapper/*.xml"></property>-->
+        <property name="mapperLocations" value="classpath*:com/sz/mapper/*.xml"></property>
 
         <property name="typeAliasesPackage" value="com.sz.entity"></property>
     </bean>

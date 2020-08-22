@@ -323,6 +323,76 @@ public class UserExample {
             addCriterion("uname not between", value1, value2, "uname");
             return (Criteria) this;
         }
+
+        public Criteria andUpwdIsNull() {
+            addCriterion("upwd is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdIsNotNull() {
+            addCriterion("upwd is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdEqualTo(String value) {
+            addCriterion("upwd =", value, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdNotEqualTo(String value) {
+            addCriterion("upwd <>", value, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdGreaterThan(String value) {
+            addCriterion("upwd >", value, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdGreaterThanOrEqualTo(String value) {
+            addCriterion("upwd >=", value, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdLessThan(String value) {
+            addCriterion("upwd <", value, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdLessThanOrEqualTo(String value) {
+            addCriterion("upwd <=", value, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdLike(String value) {
+            addCriterion("upwd like", value, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdNotLike(String value) {
+            addCriterion("upwd not like", value, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdIn(List<String> values) {
+            addCriterion("upwd in", values, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdNotIn(List<String> values) {
+            addCriterion("upwd not in", values, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdBetween(String value1, String value2) {
+            addCriterion("upwd between", value1, value2, "upwd");
+            return (Criteria) this;
+        }
+
+        public Criteria andUpwdNotBetween(String value1, String value2) {
+            addCriterion("upwd not between", value1, value2, "upwd");
+            return (Criteria) this;
+        }
     }
 
     /**

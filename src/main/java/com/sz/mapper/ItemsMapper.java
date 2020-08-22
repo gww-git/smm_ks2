@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface ItemsMapper extends Mapper<Items> {
-
+    List<Items> randItems(int id);
 }
