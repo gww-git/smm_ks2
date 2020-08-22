@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sz.mapper.ScoreMapper">
+
+    <insert id="insertScore" parameterType="score" useGeneratedKeys="true" keyProperty="scoreid">
+        insert into score(userid,paperid,score,pights,errors) values(#{userid},#{paperid},#{score},#{pights},#{errors})
+    </insert>
+
+    <select id="selectScore" parameterType="int" resultType="int">
+        select score from score where scoreid=#{id}
+    </select>
+
+
+    <select id="selectByUserAll" parameterType="int" resultType="com.sz.admin.Scores">
+        SELECT s.scoreid scoreid,s.userid userid,p.papernames naem,s.score score,s.pights pights,s.errors ERRORS, s.paperid,p.remarks remarks
+        FROM score s JOIN papers p ON  p.paperid=s.paperid WHERE s.paperid=#{id} AND userid=#{uid}
+    </select>
+
+
+
+
+
+
+
+    <select id="selectByScorePage" resultType="com.sz.admin.ScorePage" parameterType="int">
+        SELECT s.scoreid scoreid,s.userid userid, s.paperid paperid,s.score,s.pights,s.errors,
+        sd.dataid dataid,sd.eid eid,sd.uanswer uanswer,sd.upoint upoint,
+        i.ename ename,i.escore escore,i.etype etype,i.edegree edegree,i.ea,i.eb,i.ec,i.ed,i.ee,i.ey,i.ekeys,i.ehints ehints,
+        p.papernames papernames,p.papertype papertype,p.method method,p.remarks remarks,p.createtime createtime
+        FROM score s JOIN scoredata sd ON s.scoreid=sd.scoreid
+        JOIN items i ON sd.eid=i.eid JOIN papers p  ON i.epaperid=p.paperid WHERE s.scoreid=#{id}
+    </select>
+</mapper>

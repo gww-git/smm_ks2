@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sz.mapper.ItemsMapper">
+
+
+
+    <select id="randItems" resultType="items" parameterType="int">
+      SELECT * FROM items where epaperid=#{id} ORDER BY RAND() LIMIT 0,6
+    </select>
+
+
+
+
+
+</mapper>
